@@ -5,7 +5,7 @@ import LoadingPage from "./LoadingPage.js"
 import Actions from './Actions.js'
 import { parseDate } from '../app/format.js'
 const rang = (bills) => {
-    const data = bills.sort((a, b) => new Date(parseDate(b.date)) - new Date(parseDate(a.date)))
+    const data = (bills && bills.length > 0) ? bills.sort((a, b) => new Date(parseDate(b.date)) - new Date(parseDate(a.date))) : []
     console.log("data r", data)
   return data
 }

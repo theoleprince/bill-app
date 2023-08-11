@@ -6,6 +6,7 @@ import USERS_TEST from '../constants/usersTest.js'
 import Logout from "./Logout.js"
 
 export const filteredBills = (data, status) => {
+  console.log(data)
   return (data && data.length) ?
     data.filter(bill => {
       let selectCondition
@@ -53,6 +54,7 @@ export const card = (bill) => {
 }
 
 export const cards = (bills) => {
+  console.log(bills)
   return bills && bills.length ? bills.map(bill => card(bill)).join("") : ""
 }
 
@@ -86,8 +88,10 @@ export default class {
   }
 
   handleEditTicket(e, bill, bills) {
+    // this.index = 0;
+    // this.counter = 0;
     if (this.counter === undefined || this.id !== bill.id) this.counter = 0
-    if (this.id === undefined || this.id !== bill.id) this.id = bill.id
+    if (this.id === undefined || this.id === bill.id) this.id = bill.id
     if (this.counter % 2 === 0) {
       bills.forEach(b => {
         $(`#open-bill${b.id}`).css({ background: '#0D5AE5' })
@@ -97,6 +101,7 @@ export default class {
       $('.vertical-navbar').css({ height: '150vh' })
       this.counter ++
     } else {
+      console.log('the')
       $(`#open-bill${bill.id}`).css({ background: '#0D5AE5' })
 
       $('.dashboard-right-container div').html(`
@@ -148,7 +153,6 @@ export default class {
     bills.forEach(bill => {
       $(`#open-bill${bill.id}`).click((e) => this.handleEditTicket(e, bill, bills))
     })
-
     return bills
 
   }
