@@ -20,13 +20,12 @@ export default class NewBill {
     const file = this.document.querySelector(`input[data-testid="file"]`).files[0]
     const filePath = e.target.value.split(/\\/g)
     const fileName = filePath[filePath.length-1]
-    console.log(filePath)
-    console.log(fileName)
+    console.log('filePath',filePath)
+    console.log('fileName',fileName)
      // Check file extension
      const allowedExtensions = ['jpg', 'jpeg', 'png'];
      const fileExtension = fileName.split('.').pop().toLowerCase();
      if (!allowedExtensions.includes(fileExtension)) {
-         console.log("Invalid file extension. Only jpg, jpeg, and png files are allowed.");
          alert("Invalid file extension. Only jpg, jpeg, and png files are allowed.")
          return;
      }
