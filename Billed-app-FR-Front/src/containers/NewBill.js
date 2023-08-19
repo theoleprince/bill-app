@@ -27,6 +27,7 @@ export default class NewBill {
      const fileExtension = fileName.split('.').pop().toLowerCase();
      if (!allowedExtensions.includes(fileExtension)) {
          alert("Invalid file extension. Only jpg, jpeg, and png files are allowed.")
+         this.document.querySelector(`input[data-testid="file"]`).innerText = null
          return;
      }
     const formData = new FormData()
